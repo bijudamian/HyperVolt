@@ -91,32 +91,6 @@
             height: auto;
             object-fit: cover;
         }
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #ffffff;
-            text-align: center;
-            line-height: 40px;
-            cursor: pointer;
-            border: none;
-            font-size: 24px;
-            border-radius: 50%;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-            user-select: none;
-        }
-        .prev:hover, .next:hover {
-            opacity: 1;
-        }
-        .prev {
-            left: 10px;
-        }
-        .next {
-            right: 10px;
-        }
         .features {
             padding: 80px 0;
             background-color: #f9f9f9;
@@ -309,8 +283,12 @@
             <div class="slideshow-slide">
                 <img src="slide9.jpg" alt="Slide 5 - Battery for industrial use">
             </div>
-            <a class="prev">&#10094;</a>
-            <a class="next">&#10095;</a>
+            <div class="slideshow-slide">
+                <img src="slide10.jpg" alt="slide10">
+            </div>
+            <div class="slideshow-slide">
+                <img src="slide7.jpg" alt="slide7">
+            </div>
         </div>
     </section>
 
@@ -433,14 +411,13 @@
             <p style="color: #f9f9f9;">&copy; 2024 HyperVolt Energy. All Rights Reserved.</p>
         </div>
     </footer>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
-
+    
         let slideIndex = 0;
         showSlides();
-
+    
         function showSlides() {
             let slides = document.getElementsByClassName("slideshow-slide");
             for (let i = 0; i < slides.length; i++) {
@@ -451,9 +428,9 @@
                 slideIndex = 1;
             }
             slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 5000); // Change slide every 5 seconds
+            setTimeout(showSlides, 3000); // Change slide every 3 seconds
         }
-
+    
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
@@ -463,19 +440,7 @@
                 header.classList.remove('scrolled');
             }
         });
-
-        // Slideshow manual controls
-        const prev = document.querySelector('.prev');
-        const next = document.querySelector('.next');
-
-        prev.addEventListener('click', function() {
-            slideIndex = (slideIndex - 2 + slides.length) % slides.length;
-            showSlides();
-        });
-
-        next.addEventListener('click', function() {
-            showSlides();
-        });
     </script>
+    
 </body>
 </html>
