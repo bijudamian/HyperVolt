@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HyperVolt Energy develops advanced battery solutions with lithium vanadium oxide and graphene for industrial applications.">
+    <meta name="keywords" content="battery technology, lithium vanadium oxide, graphene, industrial energy storage">
     <title>HyperVolt Energy</title>
+    <link rel="icon" href="favicon.ico">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         body, html {
             margin: 0;
@@ -19,6 +23,10 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+        .header.scrolled {
+            background-color: rgba(255, 255, 255, 1);
         }
         .container {
             width: 80%;
@@ -53,9 +61,6 @@
             color: #4CAF50;
         }
         .hero {
-            background-image: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -63,42 +68,52 @@
             text-align: center;
             color: #ffffff;
             position: relative;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
+            overflow: hidden;
         }
         .hero-content {
             position: relative;
             z-index: 1;
         }
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
         }
-        .hero p {
+        .slideshow-slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        .slideshow-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            border: none;
             font-size: 24px;
-            max-width: 600px;
-            margin: 0 auto;
+            border-radius: 50%;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            user-select: none;
         }
-        .cta-button {
-            display: inline-block;
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-size: 18px;
-            margin-top: 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+        .prev:hover, .next:hover {
+            opacity: 1;
         }
-        .cta-button:hover {
-            background-color: #45a049;
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
         }
         .features {
             padding: 80px 0;
@@ -146,13 +161,46 @@
             padding: 40px 0;
             text-align: center;
         }
+        .info-section {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .info-box {
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #666;
+            padding-bottom: 5px;
+        }
+        p {
+            color: #333;
+            line-height: 1.6;
+        }
+        .objectives { background-color: #e6f3ff; }
+        .goals { background-color: #e6ffe6; }
+        .vision { background-color: #fff0e6; }
+        .mission { background-color: #f3e6ff; }
+
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="container">
             <nav class="navbar">
-                <div class="logo">HyperVolt Energy</div>
+                <div class="logo"><a href="#home" style="text-decoration: none; color: inherit;">HyperVolt Energy</a></div>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#features">Features</a></li>
@@ -164,54 +212,132 @@
     </header>
 
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Powering the Future with HyperVolt Energy</h1>
-            <p>Innovative energy solutions for a sustainable world</p>
-            <a href="#" class="cta-button">Learn More</a>
+        <div class="slideshow-container">
+            <div class="slideshow-slide">
+                <img src="slide4.jpg" alt="Slide 1 - HyperVolt energy storage system">
+            </div>
+            <div class="slideshow-slide">
+                <img src="slide1.jpg" alt="Slide 2 - Graphene technology integration">
+            </div>
+            <div class="slideshow-slide">
+                <img src="slide5.jpg" alt="Slide 3 - Sustainable battery innovation">
+            </div>
+            <div class="slideshow-slide">
+                <img src="slide8.jpg" alt="Slide 4 - HyperVolt cutting-edge research">
+            </div>
+            <div class="slideshow-slide">
+                <img src="slide9.jpg" alt="Slide 5 - Battery for industrial use">
+            </div>
+            <a class="prev">&#10094;</a>
+            <a class="next">&#10095;</a>
         </div>
     </section>
 
     <section id="features" class="features">
         <div class="container">
             <div class="feature-grid">
-                <div class="feature-item">
-                    <img src="/api/placeholder/80/80" alt="Sustainable Energy">
-                    <h3>Sustainable Energy</h3>
-                    <p>Harnessing renewable resources for a cleaner future</p>
+                <div class="feature-item" data-aos="fade-up">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj130NtJ1Kqt2Ff0Dq616jXcm4i8E6bXchHQ&s" style="height: 200px; width: 250px;" alt="Feature 1">
+                    <h3>Advanced Battery Technology</h3>
+                    <p>Leveraging Lithium vanadium oxide for long-lasting industrial applications</p>
                 </div>
-                <div class="feature-item">
-                    <img src="/api/placeholder/80/80" alt="Innovative Technology">
-                    <h3>Innovative Technology</h3>
-                    <p>Cutting-edge solutions for efficient power generation</p>
+                <div class="feature-item" data-aos="fade-down">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnDY0-wQLX5qK-NMJT-Nwz4zw8k7gEkSb-9g&s" style="height: 200px; width: 250px;" alt="Feature 2">
+                    <h3>Graphene Integration</h3>
+                    <p>Boosting conductivity and performance through innovative graphene composites</p>
                 </div>
-                <div class="feature-item">
-                    <img src="/api/placeholder/80/80" alt="Global Impact">
-                    <h3>Global Impact</h3>
-                    <p>Making a difference in communities worldwide</p>
+                <div class="feature-item" data-aos="fade-left">
+                    <img src="https://i.ytimg.com/vi/4GZU78LvOtU/maxresdefault.jpg" style="height: 200px; width: 250px;" alt="Feature 3">
+                    <h3>Sustainable Energy Solutions</h3>
+                    <p>Building batteries that contribute to a greener, more efficient future</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="info-section">
+        <div class="info-box objectives" data-aos="fade-right">
+            <h2>Company Objectives</h2>
+            <p>Our primary objective is to revolutionize the battery market by producing energy-efficient, long-lasting, and environmentally friendly power solutions.</p>
+        </div>
+        <div class="info-box goals" data-aos="fade-left">
+            <h2>Company Goals</h2>
+            <p>Our goal is to become a leader in the battery technology sector, focusing on continuous innovation and delivering high-performance batteries for industrial use.</p>
+        </div>
+        <div class="info-box vision" data-aos="fade-right">
+            <h2>Company Vision</h2>
+            <p>We envision a future where sustainable energy is accessible to industries across the globe, driving a new era of technological growth.</p>
+        </div>
+        <div class="info-box mission" data-aos="fade-left">
+            <h2>Company Mission</h2>
+            <p>Our mission is to develop high-performance battery systems that contribute to the progress of energy-dependent industries while maintaining environmental responsibility.</p>
+        </div>
+    </div>
 
     <section id="about" class="about">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
                     <h2>About HyperVolt Energy</h2>
-                    <p>HyperVolt Energy is at the forefront of the renewable energy revolution. We are committed to developing and implementing sustainable energy solutions that power homes, businesses, and communities while minimizing environmental impact.</p>
-                    <p>Our team of experts works tirelessly to innovate and improve energy technologies, ensuring a brighter and cleaner future for generations to come.</p>
+                    <p>At HyperVolt, we are committed to transforming the future of energy storage by creating advanced, long-lasting batteries tailored for industrial applications. With a focus on innovation and performance, we develop cutting-edge solutions that deliver both reliability and efficiency, even in the most demanding environments.</p>
+                    <p>Our team of experts is dedicated to pushing the boundaries of battery technology, ensuring that our products meet the growing global demand for sustainable and powerful energy storage systems. We are passionate about driving industries forward with batteries that support a greener, more energy-efficient world.</p>
                 </div>
-                <div class="about-image">
-                    <img src="/api/placeholder/600/400" alt="About HyperVolt Energy">
+                <div class="about-image" data-aos="zoom-in">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMeAo89XYBXS7aipYFGWQrVFPhcjatqJfELA&s" alt="About HyperVolt Energy">
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="footer">
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 HyperVolt Energy. All rights reserved.</p>
+            <p>&copy; 2024 HyperVolt Energy. All Rights Reserved.</p>
+            <p>bersin</p>
         </div>
     </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slideshow-slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 5000); // Change slide every 5 seconds
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Slideshow manual controls
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+
+        prev.addEventListener('click', function() {
+            slideIndex = (slideIndex - 2 + slides.length) % slides.length;
+            showSlides();
+        });
+
+        next.addEventListener('click', function() {
+            showSlides();
+        });
+    </script>
 </body>
 </html>
